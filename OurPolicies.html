@@ -21,6 +21,11 @@
       ☰
     </button>
 
+    <button class="dark-toggle" aria-label="Toggle dark mode">
+  🌙
+</button>
+
+
     <nav class="nav-links">
       <a href="index.html">About</a>
       <a href="OurPartners.html">Partners</a>
@@ -123,6 +128,34 @@
     navLinks.classList.toggle('active');
   });
 </script>
+
+<script>
+  const darkToggle = document.querySelector('.dark-toggle');
+  const body = document.body;
+
+  // Apply saved preference or system preference on load
+  const savedTheme = localStorage.getItem('theme');
+
+  if (savedTheme === 'dark') {
+    body.classList.add('dark');
+    darkToggle.textContent = '☀️';
+  } else if (!savedTheme) {
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      body.classList.add('dark');
+      darkToggle.textContent = '☀️';
+    }
+  }
+
+  // Toggle dark mode
+  darkToggle.addEventListener('click', () => {
+    body.classList.toggle('dark');
+
+    const isDark = body.classList.contains('dark');
+    darkToggle.textContent = isDark ? '☀️' : '🌙';
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  });
+</script>
+
 
 
 </body>
