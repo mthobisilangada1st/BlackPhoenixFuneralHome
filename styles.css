@@ -108,6 +108,7 @@ body {
 
 .brand img {
   width: 48px;
+  height: auto;
   border-radius: 12px;
 }
 
@@ -208,7 +209,7 @@ body {
    ===================================================== */
 
 .siya {
-  max-width: 420px;
+  max-width: 520px;
   margin: 2rem auto;
   border-radius: 16px;
   overflow: hidden;
@@ -217,8 +218,9 @@ body {
 
 .siya img {
   width: 100%;
-  height: 420px;
+  height: 520px;
   object-fit: cover;
+  display: block;
 }
 
 /* =====================================================
@@ -248,7 +250,7 @@ body {
 }
 
 /* =====================================================
-   CONTACT FORM
+   CONTACT FORM & CONTACT CARDS
    ===================================================== */
 
 .contact-layout {
@@ -258,29 +260,60 @@ body {
   margin-top: 2rem;
 }
 
-.contact-card, .contact-form {
+.contact-card,
+.contact-form {
   background-color: var(--bg-card);
   padding: 1.75rem 1.5rem;
   border-radius: 16px;
   box-shadow: var(--shadow-soft);
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
-.contact-card h3, .contact-form h3 {
+/* === CONTACT CARD IMAGES (NEW) === */
+
+.contact-card img.contact-image {
+  width: 100%;
+  max-width: 140px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  box-shadow: var(--shadow-soft);
+}
+
+/* === TEXT === */
+
+.contact-card h3,
+.contact-form h3 {
   margin-bottom: 1rem;
 }
 
-.contact-card p, .contact-card a, .contact-form p {
+.contact-card p,
+.contact-card a,
+.contact-form p {
   margin-bottom: 0.5rem;
   font-size: 0.95rem;
   color: var(--text-main);
 }
 
+.contact-card a {
+  text-decoration: none;
+}
+
+.contact-card a:hover {
+  text-decoration: underline;
+}
+
+/* === FORM === */
+
 .contact-form .form-group {
   display: flex;
   flex-direction: column;
   margin-bottom: 1rem;
+  width: 100%;
 }
 
 .contact-form label {
@@ -333,7 +366,7 @@ body {
 }
 
 /* =====================================================
-   WHATSAPP
+   WHATSAPP FLOAT
    ===================================================== */
 
 .whatsapp-float {
@@ -352,6 +385,7 @@ body {
 
 .whatsapp-icon {
   width: 34px;
+  height: auto;
 }
 
 /* =====================================================
@@ -386,10 +420,18 @@ body {
   .contact-layout {
     grid-template-columns: 1fr;
   }
+
+  .contact-card img.contact-image {
+    max-width: 120px;
+  }
 }
 
 @media (max-width: 480px) {
   .siya img {
     height: 300px;
+  }
+
+  .contact-card img.contact-image {
+    max-width: 100px;
   }
 }
